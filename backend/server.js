@@ -17,6 +17,7 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/photos', require('./routes/photos'));
 app.use('/api/tickers', require('./routes/tickers'));
+app.use('/api/settings', require('./routes/settings'));
 
 // Connect DB and Seed Data
 mongoose.connect(process.env.MONGO_URI)

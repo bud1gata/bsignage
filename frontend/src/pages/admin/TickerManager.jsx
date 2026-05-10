@@ -8,6 +8,7 @@ export default function TickerManager() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({ text: '', urgent: false });
+  const [speed, setSpeed] = useState(30);
 
   const fetchTickers = async () => {
     try {
@@ -21,9 +22,41 @@ export default function TickerManager() {
     }
   };
 
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch('http://localhost:5003/api/settings', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if (res.ok && data.tickerSpeed) {
+        setSpeed(data.tickerSpeed);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
-    if (token) fetchTickers();
+    if (token) {
+      fetchTickers();
+      fetchSettings();
+    }
   }, [token]);
+
+  const handleSpeedChange = async (newSpeed) => {
+    try {
+      await fetch('http://localhost:5003/api/settings/tickerSpeed', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ value: newSpeed })
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -100,6 +133,29 @@ export default function TickerManager() {
           <Plus size={20} />
           Add Announcement
         </button>
+      </div>
+
+      <div className="bg-surface rounded-xl p-6 shadow border border-outline-variant mb-6">
+        <div className="flex justify-between items-center mb-2">
+          <label className="font-headline-md text-on-surface">Ticker Speed</label>
+          <span className="font-medium text-primary px-3 py-1 bg-primary-container text-on-primary-container rounded-full">{speed} seconds</span>
+        </div>
+        <p className="text-sm text-on-surface-variant mb-4">Adjust how fast the running text moves across the screen (lower number = faster speed).</p>
+        <div className="flex items-center gap-4">
+          <span className="text-sm font-bold text-on-surface-variant w-10 text-right">Fast</span>
+          <input 
+            type="range" 
+            min="10" 
+            max="60" 
+            step="5"
+            value={speed} 
+            onChange={(e) => setSpeed(Number(e.target.value))}
+            onMouseUp={() => handleSpeedChange(speed)}
+            onTouchEnd={() => handleSpeedChange(speed)}
+            className="flex-1 h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary"
+          />
+          <span className="text-sm font-bold text-on-surface-variant w-10">Slow</span>
+        </div>
       </div>
 
       <div className="bg-surface rounded-xl shadow border border-outline-variant overflow-hidden">

@@ -6,17 +6,22 @@ import RunningTicker from '../components/RunningTicker';
 export default function DisplayScreen() {
   const [photos, setPhotos] = useState([]);
   const [tickers, setTickers] = useState([]);
+  const [tickerSpeed, setTickerSpeed] = useState(30);
 
   const fetchData = async () => {
     try {
-      const [photoRes, tickerRes] = await Promise.all([
+      const [photoRes, tickerRes, settingRes] = await Promise.all([
         fetch('http://localhost:5003/api/photos'),
-        fetch('http://localhost:5003/api/tickers')
+        fetch('http://localhost:5003/api/tickers'),
+        fetch('http://localhost:5003/api/settings')
       ]);
       const photoData = await photoRes.json();
       const tickerData = await tickerRes.json();
+      const settingData = await settingRes.json();
+      
       setPhotos(photoData);
       setTickers(tickerData);
+      if (settingData.tickerSpeed) setTickerSpeed(settingData.tickerSpeed);
     } catch (err) {
       console.error('Failed to fetch display data');
     }
@@ -34,7 +39,7 @@ export default function DisplayScreen() {
         <Slideshow photos={photos} />
         <DigitalClock />
       </main>
-      <RunningTicker items={tickers} />
+      <RunningTicker items={tickers} speed={tickerSpeed} />
     </div>
   );
 }
