@@ -10,6 +10,7 @@ export default function DisplayScreen() {
   const [tickerSpeed, setTickerSpeed] = useState(30);
   const [captionSize, setCaptionSize] = useState(1);
   const [captionOpacity, setCaptionOpacity] = useState(80);
+  const [logoUrl, setLogoUrl] = useState('');
 
   const fetchData = async () => {
     try {
@@ -27,6 +28,7 @@ export default function DisplayScreen() {
       if (settingData.tickerSpeed) setTickerSpeed(settingData.tickerSpeed);
       if (settingData.captionSize) setCaptionSize(settingData.captionSize);
       if (settingData.captionOpacity !== undefined) setCaptionOpacity(settingData.captionOpacity);
+      if (settingData.logoUrl) setLogoUrl(settingData.logoUrl);
     } catch (err) {
       console.error('Failed to fetch display data');
     }
@@ -44,7 +46,7 @@ export default function DisplayScreen() {
         <Slideshow photos={photos} captionSize={captionSize} captionOpacity={captionOpacity} />
         <DigitalClock />
       </main>
-      <RunningTicker items={tickers} speed={tickerSpeed} />
+      <RunningTicker items={tickers} speed={tickerSpeed} logoUrl={logoUrl} />
     </div>
   );
 }

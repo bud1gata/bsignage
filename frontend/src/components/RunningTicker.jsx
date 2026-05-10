@@ -1,4 +1,4 @@
-export default function RunningTicker({ items = [], speed = 30 }) {
+export default function RunningTicker({ items = [], speed = 30, logoUrl = '' }) {
   if (items.length === 0) return null;
 
   const renderItems = () =>
@@ -23,8 +23,13 @@ export default function RunningTicker({ items = [], speed = 30 }) {
   return (
     <div className="bg-primary text-on-primary h-20 flex items-center shrink-0 border-t-4 border-secondary overflow-hidden w-full relative z-20">
       <div className="flex items-center px-6 h-full bg-primary-container z-10 shadow-[4px_0_12px_rgba(0,0,0,0.5)]">
-        <span className="font-label-bold text-label-bold uppercase tracking-wider text-secondary-fixed whitespace-nowrap pr-4 border-r border-outline/30">
-          <span className="material-symbols-outlined align-middle mr-2 text-xl">rss_feed</span> Campus News
+        <span className="font-label-bold text-label-bold uppercase tracking-wider text-secondary-fixed whitespace-nowrap pr-4 border-r border-outline/30 flex items-center gap-2">
+          {logoUrl ? (
+            <img src={logoUrl} alt="Logo" className="h-10 w-auto object-contain" />
+          ) : (
+            <span className="material-symbols-outlined align-middle text-xl">rss_feed</span>
+          )}
+          Campus News
         </span>
       </div>
       <div className="flex-1 overflow-hidden h-full flex items-center">
