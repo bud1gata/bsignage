@@ -47,6 +47,10 @@ export default function GalleryManager() {
     e.preventDefault();
     if (!formData.file && !formData.url) return alert('Please select an image file OR provide an image URL');
 
+    if (formData.file && formData.file.size > 2 * 1024 * 1024) {
+      return alert('Ukuran file terlalu besar! Maksimal 2MB.');
+    }
+
     const data = new FormData();
     if (formData.file) data.append('image', formData.file);
     if (formData.url) data.append('url', formData.url);

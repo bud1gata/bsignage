@@ -21,7 +21,10 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 2 * 1024 * 1024 } // Max 2MB
+});
 
 router.route('/').get(getActivePhotos).post(protect, upload.single('image'), createPhoto);
 router.route('/all').get(protect, getAllPhotos);
