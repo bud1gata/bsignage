@@ -1,6 +1,6 @@
 import { Outlet, Navigate, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { LayoutDashboard, Images, Rss, LogOut } from 'lucide-react';
+import { LayoutDashboard, Images, Rss, LogOut, Settings as SettingsIcon } from 'lucide-react';
 
 export default function AdminLayout() {
   const { isAuthenticated, logout } = useAuth();
@@ -13,6 +13,7 @@ export default function AdminLayout() {
     { to: '/admin', icon: LayoutDashboard, label: 'Dashboard', end: true },
     { to: '/admin/gallery', icon: Images, label: 'Gallery' },
     { to: '/admin/ticker', icon: Rss, label: 'Running Text' },
+    { to: '/admin/settings', icon: SettingsIcon, label: 'Settings' },
   ];
 
   return (
