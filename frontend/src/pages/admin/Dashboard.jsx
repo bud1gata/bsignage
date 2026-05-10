@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import API_BASE_URL from '../../config/api';
 
 export default function Dashboard() {
   const { token } = useAuth();
@@ -8,7 +9,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch('http://localhost:5003/api/auth/stats', {
+        const res = await fetch(`${API_BASE_URL}/api/auth/stats`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();

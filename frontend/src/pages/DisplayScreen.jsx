@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import DigitalClock from '../components/DigitalClock';
 import Slideshow from '../components/Slideshow';
 import RunningTicker from '../components/RunningTicker';
+import API_BASE_URL from '../config/api';
 
 export default function DisplayScreen() {
   const [photos, setPhotos] = useState([]);
@@ -13,9 +14,9 @@ export default function DisplayScreen() {
   const fetchData = async () => {
     try {
       const [photoRes, tickerRes, settingRes] = await Promise.all([
-        fetch('http://localhost:5003/api/photos'),
-        fetch('http://localhost:5003/api/tickers'),
-        fetch('http://localhost:5003/api/settings')
+        fetch(`${API_BASE_URL}/api/photos`),
+        fetch(`${API_BASE_URL}/api/tickers`),
+        fetch(`${API_BASE_URL}/api/settings`)
       ]);
       const photoData = await photoRes.json();
       const tickerData = await tickerRes.json();

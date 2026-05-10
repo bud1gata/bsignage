@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { KeyRound, Type, SlidersHorizontal } from 'lucide-react';
+import API_BASE_URL from '../../config/api';
 
 export default function Settings() {
   const { token, logout } = useAuth();
@@ -15,7 +16,7 @@ export default function Settings() {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const res = await fetch('http://localhost:5003/api/settings');
+        const res = await fetch(`${API_BASE_URL}/api/settings`);
         const data = await res.json();
         if (data.captionSize) setCaptionSize(data.captionSize);
         if (data.captionOpacity !== undefined) setCaptionOpacity(data.captionOpacity);
@@ -26,7 +27,7 @@ export default function Settings() {
 
   const handleSettingChange = async (key, value) => {
     try {
-      await fetch(`http://localhost:5003/api/settings/${key}`, {
+      await fetch(`${API_BASE_URL}/api/settings/${key}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ export default function Settings() {
     }
 
     try {
-      const res = await fetch('http://localhost:5003/api/auth/password', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

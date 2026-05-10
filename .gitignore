@@ -29,6 +29,9 @@ dist/
 build/
 out/
 
+# Uploaded files
+backend/uploads/
+
 # IDEs and Editors
 .idea/
 .vscode/

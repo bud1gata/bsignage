@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, Edit } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import API_BASE_URL from '../../config/api';
 
 export default function GalleryManager() {
   const { token } = useAuth();
@@ -28,7 +29,7 @@ export default function GalleryManager() {
 
   const fetchPhotos = async () => {
     try {
-      const res = await fetch('http://localhost:5003/api/photos/all', {
+      const res = await fetch(`${API_BASE_URL}/api/photos/all`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -53,7 +54,7 @@ export default function GalleryManager() {
     if (formData.description) data.append('description', formData.description);
 
     try {
-      const url = editId ? `http://localhost:5003/api/photos/${editId}` : 'http://localhost:5003/api/photos';
+      const url = editId ? `${API_BASE_URL}/api/photos/${editId}` : `${API_BASE_URL}/api/photos`;
       const method = editId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -75,7 +76,7 @@ export default function GalleryManager() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure?')) return;
     try {
-      const res = await fetch(`http://localhost:5003/api/photos/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/photos/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, ToggleLeft, ToggleRight, Edit } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import API_BASE_URL from '../../config/api';
 
 export default function TickerManager() {
   const { token } = useAuth();
@@ -12,7 +13,7 @@ export default function TickerManager() {
 
   const fetchTickers = async () => {
     try {
-      const res = await fetch('http://localhost:5003/api/tickers/all', {
+      const res = await fetch(`${API_BASE_URL}/api/tickers/all`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -24,7 +25,7 @@ export default function TickerManager() {
 
   const fetchSettings = async () => {
     try {
-      const res = await fetch('http://localhost:5003/api/settings', {
+      const res = await fetch(`${API_BASE_URL}/api/settings`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -45,7 +46,7 @@ export default function TickerManager() {
 
   const handleSpeedChange = async (newSpeed) => {
     try {
-      await fetch('http://localhost:5003/api/settings/tickerSpeed', {
+      await fetch(`${API_BASE_URL}/api/settings/tickerSpeed`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +74,7 @@ export default function TickerManager() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = editId ? `http://localhost:5003/api/tickers/${editId}` : 'http://localhost:5003/api/tickers';
+      const url = editId ? `${API_BASE_URL}/api/tickers/${editId}` : `${API_BASE_URL}/api/tickers`;
       const method = editId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -95,7 +96,7 @@ export default function TickerManager() {
 
   const handleToggle = async (id, currentStatus) => {
     try {
-      const res = await fetch(`http://localhost:5003/api/tickers/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/tickers/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +113,7 @@ export default function TickerManager() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure?')) return;
     try {
-      const res = await fetch(`http://localhost:5003/api/tickers/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/tickers/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
