@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function Slideshow({ photos = [] }) {
+export default function Slideshow({ photos = [], captionSize = 1, captionOpacity = 80 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -32,8 +32,15 @@ export default function Slideshow({ photos = [] }) {
 
       {/* Caption Bar */}
       {currentPhoto?.title && (
-        <div className="absolute bottom-margin-desktop left-margin-desktop right-margin-desktop z-10 transition-opacity duration-500">
-          <div className="bg-inverse-surface/80 backdrop-blur-md rounded-xl p-6 shadow-lg border border-outline/20 max-w-4xl animate-[fade-in_0.5s_ease-out]">
+        <div className="absolute bottom-margin-desktop left-margin-desktop right-margin-desktop z-10 transition-opacity duration-500 flex items-end">
+          <div 
+            className="backdrop-blur-md rounded-xl p-6 shadow-lg border border-outline/20 max-w-4xl animate-[fade-in_0.5s_ease-out]"
+            style={{ 
+              backgroundColor: `rgba(47, 48, 52, ${captionOpacity / 100})`,
+              transform: `scale(${captionSize})`,
+              transformOrigin: 'bottom left'
+            }}
+          >
             <div className="flex items-start gap-4">
               <span className="material-symbols-outlined text-secondary-fixed text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>
                 campaign

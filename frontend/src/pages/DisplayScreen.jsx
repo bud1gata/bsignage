@@ -7,6 +7,8 @@ export default function DisplayScreen() {
   const [photos, setPhotos] = useState([]);
   const [tickers, setTickers] = useState([]);
   const [tickerSpeed, setTickerSpeed] = useState(30);
+  const [captionSize, setCaptionSize] = useState(1);
+  const [captionOpacity, setCaptionOpacity] = useState(80);
 
   const fetchData = async () => {
     try {
@@ -22,6 +24,8 @@ export default function DisplayScreen() {
       setPhotos(photoData);
       setTickers(tickerData);
       if (settingData.tickerSpeed) setTickerSpeed(settingData.tickerSpeed);
+      if (settingData.captionSize) setCaptionSize(settingData.captionSize);
+      if (settingData.captionOpacity !== undefined) setCaptionOpacity(settingData.captionOpacity);
     } catch (err) {
       console.error('Failed to fetch display data');
     }
@@ -36,7 +40,7 @@ export default function DisplayScreen() {
   return (
     <div className="bg-background text-on-background h-screen w-screen overflow-hidden flex flex-col">
       <main className="flex-grow relative w-full bg-surface-container-highest">
-        <Slideshow photos={photos} />
+        <Slideshow photos={photos} captionSize={captionSize} captionOpacity={captionOpacity} />
         <DigitalClock />
       </main>
       <RunningTicker items={tickers} speed={tickerSpeed} />
