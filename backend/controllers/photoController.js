@@ -1,5 +1,9 @@
 const Photo = require('../models/Photo');
 
+const getBaseUrl = (req) => {
+  return process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+};
+
 // @desc    Get all active photos
 // @route   GET /api/photos
 // @access  Public
@@ -31,7 +35,7 @@ const createPhoto = async (req, res) => {
   try {
     let url = req.body.url;
     if (req.file) {
-      url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+      url = `${getBaseUrl(req)}/uploads/${req.file.filename}`;
     }
 
     const photoData = {

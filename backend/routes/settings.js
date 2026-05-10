@@ -26,7 +26,8 @@ router.put('/:key', protect, updateSetting);
 // Logo upload
 router.post('/logo', protect, upload.single('logo'), async (req, res) => {
   try {
-    const logoUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const logoUrl = `${baseUrl}/uploads/${req.file.filename}`;
     
     let setting = await Setting.findOne({ key: 'logoUrl' });
     if (setting) {
