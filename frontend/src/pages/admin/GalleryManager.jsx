@@ -6,7 +6,7 @@ export default function GalleryManager() {
   const { token } = useAuth();
   const [photos, setPhotos] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({ url: '', title: '', description: '' });
+  const [formData, setFormData] = useState({ file: null, url: '', title: '', description: '' });
 
   const fetchPhotos = async () => {
     try {
@@ -26,18 +26,25 @@ export default function GalleryManager() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.file && !formData.url) return alert('Please select an image file OR provide an image URL');
+
+    const data = new FormData();
+    if (formData.file) data.append('image', formData.file);
+    if (formData.url) data.append('url', formData.url);
+    if (formData.title) data.append('title', formData.title);
+    if (formData.description) data.append('description', formData.description);
+
     try {
       const res = await fetch('http://localhost:5003/api/photos', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify(formData)
+        body: data
       });
       if (res.ok) {
         setIsModalOpen(false);
-        setFormData({ url: '', title: '', description: '' });
+        setFormData({ file: null, url: '', title: '', description: '' });
         fetchPhotos();
       }
     } catch (err) {
@@ -96,8 +103,28 @@ export default function GalleryManager() {
             <h3 className="font-headline-md text-on-surface mb-4">Upload New Photo</h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label className="block text-sm font-medium text-on-surface-variant mb-1">Photo URL</label>
-                <input type="text" required value={formData.url} onChange={e => setFormData({...formData, url: e.target.value})} className="w-full rounded-lg border-outline-variant focus:ring-primary focus:border-primary" placeholder="https://..." />
+                <label className="block text-sm font-medium text-on-surface-variant mb-1">Photo Image (Upload)</label>
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  onChange={e => setFormData({...formData, file: e.target.files[0]})} 
+                  className="w-full rounded-lg border border-outline-variant p-2 focus:ring-primary focus:border-primary" 
+                />
+              </div>
+              <div className="flex items-center gap-4">
+                <hr className="flex-grow border-outline-variant" />
+                <span className="text-sm font-medium text-on-surface-variant">OR</span>
+                <hr className="flex-grow border-outline-variant" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-on-surface-variant mb-1">Photo URL (Link)</label>
+                <input 
+                  type="text" 
+                  value={formData.url} 
+                  onChange={e => setFormData({...formData, url: e.target.value})} 
+                  className="w-full rounded-lg border-outline-variant focus:ring-primary focus:border-primary" 
+                  placeholder="https://..." 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-on-surface-variant mb-1">Caption Title (Optional)</label>

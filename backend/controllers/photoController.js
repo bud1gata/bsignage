@@ -29,7 +29,17 @@ const getAllPhotos = async (req, res) => {
 // @access  Private
 const createPhoto = async (req, res) => {
   try {
-    const photo = new Photo(req.body);
+    let url = req.body.url;
+    if (req.file) {
+      url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    }
+
+    const photoData = {
+      ...req.body,
+      url: url
+    };
+
+    const photo = new Photo(photoData);
     const createdPhoto = await photo.save();
     res.status(201).json(createdPhoto);
   } catch (error) {
@@ -45,10 +55,20 @@ const updatePhoto = async (req, res) => {
     const photo = await Photo.findById(req.params.id);
 
     if (photo) {
-      photo.url = req.body.url || photo.url;
+      if (req.file) {
+        photo.url = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+      } else if (req.body.url) {
+        photo.url = req.body.url;
+      }
+      
       photo.title = req.body.title !== undefined ? req.body.title : photo.title;
       photo.description = req.body.description !== undefined ? req.body.description : photo.description;
-      photo.isActive = req.body.isActive !== undefined ? req.body.isActive : photo.isActive;
+      
+      // Handle boolean conversion for formData
+      if (req.body.isActive !== undefined) {
+        photo.isActive = req.body.isActive === 'true' || req.body.isActive === true;
+      }
+      
       photo.order = req.body.order !== undefined ? req.body.order : photo.order;
 
       const updatedPhoto = await photo.save();
