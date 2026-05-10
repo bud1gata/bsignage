@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Settings - Kampus Signage CMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#737780",
+                        "primary-container": "#003366",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-dim": "#dad9de",
+                        "surface-container-low": "#f4f3f8",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3034",
+                        "background": "#f9f9fe",
+                        "surface-tint": "#3a5f94",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#592300",
+                        "surface-container": "#eeedf2",
+                        "surface-bright": "#f9f9fe",
+                        "on-tertiary-fixed": "#341100",
+                        "on-surface": "#1a1c1f",
+                        "tertiary-fixed": "#ffdbca",
+                        "on-secondary-fixed": "#002022",
+                        "surface": "#f9f9fe",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-fixed": "#001b3c",
+                        "tertiary": "#381300",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "secondary-container": "#7af1fc",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-tertiary-fixed-variant": "#723610",
+                        "on-secondary-container": "#006e75",
+                        "secondary-fixed": "#7df4ff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e7",
+                        "inverse-primary": "#a7c8ff",
+                        "on-surface-variant": "#43474f",
+                        "inverse-on-surface": "#f1f0f5",
+                        "on-background": "#1a1c1f",
+                        "on-tertiary-container": "#d8885c",
+                        "primary": "#001e40",
+                        "surface-container-high": "#e8e8ed",
+                        "on-primary-container": "#799dd6",
+                        "outline-variant": "#c3c6d1",
+                        "secondary-fixed-dim": "#5dd8e2",
+                        "secondary": "#006970",
+                        "surface-container-highest": "#e2e2e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-tablet": "32px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "data-mono": ["Inter"],
+                        "display-lg-mobile": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Public Sans"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background min-h-screen flex text-on-background font-body-md text-body-md">
+<nav class="h-screen w-64 left-0 top-0 fixed border-r border-outline-variant shadow-sm bg-surface-container-low flex flex-col p-4 gap-2 z-40 hidden md:flex">
+<div class="flex items-center gap-3 mb-6 px-2 pt-2">
+<div class="w-10 h-10 rounded bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary leading-tight">Admin Portal</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Main Campus Central</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-bold text-label-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">perm_media</span>
+<span class="font-label-bold text-label-bold">Asset Library</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">view_headline</span>
+<span class="font-label-bold text-label-bold">Ticker Feed</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary transition-all rounded-lg active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">monitor</span>
+<span class="font-label-bold text-label-bold">Display Nodes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-label-bold active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-bold text-label-bold">System Settings</span>
+</a>
+</nav>
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-tablet lg:p-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-8">
+<header class="flex flex-col gap-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">System Settings</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage global configurations for the digital signage network.</p>
+</header>
+<form class="flex flex-col gap-8">
+<section class="bg-surface border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="px-6 py-5 border-b border-surface-variant bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">display_settings</span>
+                        Display Configuration
+                    </h2>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="slide_duration">Default Slide Duration</label>
+<div class="relative">
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors pr-10" id="slide_duration" name="slide_duration" type="number" value="15"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-sm text-body-sm text-on-surface-variant">sec</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="time_format">Time Format</label>
+<select class="w-full bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors appearance-none" id="time_format" name="time_format">
+<option value="12h">12-Hour (AM/PM)</option>
+<option selected="" value="24h">24-Hour</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="ticker_speed">Ticker Scroll Speed</label>
+<select class="w-full bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors appearance-none" id="ticker_speed" name="ticker_speed">
+<option value="slow">Slow</option>
+<option selected="" value="normal">Normal</option>
+<option value="fast">Fast</option>
+</select>
+</div>
+</div>
+</section>
+<section class="bg-surface border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="px-6 py-5 border-b border-surface-variant bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">branding_watermark</span>
+                        Branding Identity
+                    </h2>
+</div>
+<div class="p-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="campus_name">Campus Name</label>
+<input class="w-full bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" id="campus_name" name="campus_name" type="text" value="Main Campus Central"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface">Primary Brand Color</label>
+<div class="flex items-center gap-4">
+<input class="h-10 w-10 rounded cursor-pointer border-0 p-0 bg-transparent" id="primary_color" name="primary_color" type="color" value="#001e40"/>
+<span class="font-data-mono text-data-mono text-on-surface-variant uppercase border border-outline-variant rounded px-2 py-1 bg-surface-container-low">#001E40</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface">Organization Logo</label>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-6 flex flex-col items-center justify-center gap-3 bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-primary">Click to upload or drag and drop</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface border border-outline-variant rounded-xl shadow-sm overflow-hidden">
+<div class="px-6 py-5 border-b border-surface-variant bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">memory</span>
+                        System &amp; Diagnostics
+                    </h2>
+</div>
+<div class="p-6 flex flex-col gap-6">
+<div class="flex flex-col gap-2 md:w-1/2">
+<label class="font-label-bold text-label-bold text-on-surface" for="auto_refresh">Client Auto-Refresh Interval</label>
+<select class="w-full bg-surface-bright border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors appearance-none" id="auto_refresh" name="auto_refresh">
+<option value="5">Every 5 Minutes</option>
+<option selected="" value="15">Every 15 Minutes</option>
+<option value="30">Every 30 Minutes</option>
+<option value="60">Hourly</option>
+</select>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">How often display nodes poll for new content updates.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="font-label-bold text-label-bold text-on-surface">Server Status Logs</label>
+<button class="text-secondary hover:text-primary font-label-bold text-label-bold flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                                Refresh Logs
+                            </button>
+</div>
+<div class="bg-inverse-surface rounded-lg p-4 h-48 overflow-y-auto font-data-mono text-data-mono text-surface-dim shadow-inner border border-outline">
+<div class="text-secondary-fixed mb-1">[2024-05-20 14:32:01] INFO: Node connection established (ID: DS-101)</div>
+<div class="text-secondary-fixed mb-1">[2024-05-20 14:30:15] INFO: Content sync completed successfully for Group 'Main Hall'.</div>
+<div class="text-error-container mb-1">[2024-05-20 14:15:22] WARN: High latency detected on Node ID: DS-404.</div>
+<div class="text-secondary-fixed mb-1">[2024-05-20 14:00:00] INFO: Scheduled maintenance routine executed.</div>
+<div class="text-secondary-fixed mb-1">[2024-05-20 13:45:10] INFO: New asset 'spring_promo.mp4' transcoded and ready.</div>
+</div>
+</div>
+</div>
+</section>
+<div class="flex justify-end pt-4 pb-8 border-t border-outline-variant mt-4">
+<button class="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors font-label-bold text-label-bold rounded-lg px-8 py-3 shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined">save</span>
+                    Save Changes
+                </button>
+</div>
+</form>
+</main>
+</body></html>

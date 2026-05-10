@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kampus Signage - Main Display</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#737780",
+                    "primary-container": "#003366",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "surface-dim": "#dad9de",
+                    "surface-container-low": "#f4f3f8",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2f3034",
+                    "background": "#f9f9fe",
+                    "surface-tint": "#3a5f94",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#592300",
+                    "surface-container": "#eeedf2",
+                    "surface-bright": "#f9f9fe",
+                    "on-tertiary-fixed": "#341100",
+                    "on-surface": "#1a1c1f",
+                    "tertiary-fixed": "#ffdbca",
+                    "on-secondary-fixed": "#002022",
+                    "surface": "#f9f9fe",
+                    "primary-fixed": "#d5e3ff",
+                    "on-primary-fixed": "#001b3c",
+                    "tertiary": "#381300",
+                    "on-secondary-fixed-variant": "#004f54",
+                    "secondary-container": "#7af1fc",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#1f477b",
+                    "on-tertiary-fixed-variant": "#723610",
+                    "on-secondary-container": "#006e75",
+                    "secondary-fixed": "#7df4ff",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e2e2e7",
+                    "inverse-primary": "#a7c8ff",
+                    "on-surface-variant": "#43474f",
+                    "inverse-on-surface": "#f1f0f5",
+                    "on-background": "#1a1c1f",
+                    "on-tertiary-container": "#d8885c",
+                    "primary": "#001e40",
+                    "surface-container-high": "#e8e8ed",
+                    "on-primary-container": "#799dd6",
+                    "outline-variant": "#c3c6d1",
+                    "secondary-fixed-dim": "#5dd8e2",
+                    "secondary": "#006970",
+                    "surface-container-highest": "#e2e2e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "margin-tablet": "32px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "data-mono": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Public Sans"
+                    ],
+                    "headline-lg": [
+                            "Public Sans"
+                    ],
+                    "label-bold": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Public Sans"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Public Sans"
+                    ]
+            },
+            "fontSize": {
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "data-mono": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-bold": [
+                            "14px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "56px",
+                            {
+                                    "lineHeight": "64px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden flex flex-col">
+<!-- Main Content Area (Slideshow) -->
+<main class="flex-grow relative w-full bg-surface-container-highest">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A wide-angle, high-quality photograph showing a bustling university campus quad during a sunny autumn day. Students are walking along paved paths surrounded by historic brick buildings and large trees with vibrant orange and yellow leaves. The lighting is bright and inviting, casting long shadows. The overall aesthetic is vibrant, active, and academic, fitting a modern corporate/academic identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzBqTPMIGQul5kVGjTQX6CfoyAGgnXvs8RyyHFdvR6J29SUiQMnLoaHxuK_QMOWBz8xtXo4sysPd--iaubPBVDMJV_9pB6FXu4iXqteflg_24RmLjL9vdVIuhwV16S2VwEB03NQnrvZ6nvHyAt2ADLpItqmurLHH4ZPvXvCMmE93RPALYbmfVFB9QnuCRNb7TG3-cmRiQfUdrGEASKIqCHgITZ7yaYdP31ezz5fs5oyUrwHMHQKRzA6b9UZPcKHVITn8f3OX7iJOc-');">
+<!-- Overlay for contrast -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/40"></div>
+</div>
+<!-- Top Left Clock/Date -->
+<div class="absolute top-margin-desktop left-margin-desktop z-10 text-on-primary">
+<div class="font-display-lg text-display-lg drop-shadow-lg">10:42 AM</div>
+<div class="font-headline-md text-headline-md opacity-90 drop-shadow-md mt-base">Tuesday, October 24th</div>
+</div>
+<!-- Bottom Captions Bar -->
+<div class="absolute bottom-margin-desktop left-margin-desktop right-margin-desktop z-10">
+<div class="bg-inverse-surface/80 backdrop-blur-md rounded-xl p-6 shadow-lg border border-outline/20 max-w-4xl">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">
+                        campaign
+                    </span>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-primary mb-2">Spring 2024 Registration Opens Next Week</h2>
+<p class="font-body-lg text-body-lg text-surface-variant">Ensure your academic advising appointments are scheduled before November 1st to guarantee your preferred course selection.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle Slide Indicators -->
+<div class="absolute bottom-margin-desktop right-margin-desktop z-10 flex gap-2">
+<div class="w-12 h-2 rounded-full bg-secondary-fixed"></div>
+<div class="w-3 h-2 rounded-full bg-surface-variant/50"></div>
+<div class="w-3 h-2 rounded-full bg-surface-variant/50"></div>
+<div class="w-3 h-2 rounded-full bg-surface-variant/50"></div>
+</div>
+</main>
+<!-- Scrolling Ticker Bottom -->
+<div class="bg-primary text-on-primary h-20 flex items-center shrink-0 border-t-4 border-secondary overflow-hidden">
+<div class="flex items-center px-6 h-full bg-primary-container z-10 shadow-[4px_0_12px_rgba(0,0,0,0.5)]">
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-secondary-fixed whitespace-nowrap pr-4 border-r border-outline/30">
+<span class="material-symbols-outlined align-middle mr-2 text-xl">rss_feed</span> Campus News
+            </span>
+</div>
+<div class="flex-1 overflow-hidden h-full flex items-center whitespace-nowrap">
+<!-- Simulated Marquee Effect using flex layout -->
+<div class="flex items-center gap-16 px-8 font-body-lg text-body-lg">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>Library closing early at 5PM today for maintenance.</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>Guest Lecture: Dr. Jane Smith in Science Hall Auditorium at 7PM.</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>Varsity Soccer vs State University this Saturday - Tickets available now!</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>Cafeteria Special: Taco Tuesday.</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>
