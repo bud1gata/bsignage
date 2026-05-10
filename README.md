@@ -86,9 +86,6 @@ Gunakan kredensial berikut untuk login:
 
 Jika Anda memiliki pertanyaan, kendala teknis, atau ingin mendiskusikan kustomisasi lebih lanjut untuk sistem Signage ini, silakan hubungi tim pengembang:
 
-- **Nama / Tim:** [Nama Anda / BudiLab]
-- **Email:** [email.anda@domain.com]
-- **WhatsApp / Telepon:** [+62 8XX-XXXX-XXXX]
-- **Departemen:** [Lab IT / Humas]
+- **Nama:** [Budi Putra ]
+- **Email:** [me[et]budiputra[dot]web[dot]id]
 
-*(Silakan hapus atau ubah teks di dalam tanda kurung siku `[...]` di atas dengan data kontak Anda yang sebenarnya).*
